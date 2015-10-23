@@ -7,7 +7,7 @@ var indexTracker = 0;
 
 $(document).ready(function(){
     createCarousel(peopleArray);
-
+    updateMain();
     updateIndexPoints();
 
     $("#next").on('click', nextSlide);
@@ -28,6 +28,7 @@ function nextSlide(){
     }
 
     updateIndexPoints();
+    updateMain();
 }
 
 function prevSlide(){
@@ -37,6 +38,7 @@ function prevSlide(){
     }
 
     updateIndexPoints();
+    updateMain()
 }
 
 function createNavButtons($el){
@@ -61,4 +63,8 @@ function updateIndexPoints(){
             $("#index" + i).addClass("index-point-active");
         }
     }
+}
+
+function updateMain(){
+    $('#mainContent').text('name: ' + peopleArray[indexTracker] + '  index: ' +  indexTracker);
 }
